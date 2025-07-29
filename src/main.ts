@@ -5,18 +5,21 @@ import * as route_mediaplayers from "./web/routes/mediaplayers";
 import { logMiddleware } from "./web/middleware/log";
 import { corsMiddleware } from "./web/middleware/cors";
 
+const PORT = Number(process.env.PORT ?? 44642);
+const API = process.env.API ?? 'dtv';
+
 //use(logMiddleware);
 use(corsMiddleware);
 
-addRoute("POST", "/dtv/current-service/ginga/persistent/:key", route_persistent.post);
-addRoute("GET", "/dtv/current-service/ginga/persistent", route_persistent.getAll);
-addRoute("GET", "/dtv/current-service/ginga/persistent/:key", route_persistent.getOne);
+addRoute("POST", `/${API}/current-service/ginga/persistent/:key`, route_persistent.post);
+addRoute("GET", `/${API}/current-service/ginga/persistent`, route_persistent.getAll);
+addRoute("GET", `/${API}/current-service/ginga/persistent/:key`, route_persistent.getOne);
 
-addRoute("POST", "/dtv/mediaplayers/:id", route_mediaplayers.post);
-addRoute("GET", "/dtv/mediaplayers", route_mediaplayers.getAll);
-addRoute("GET", "/dtv/mediaplayers/:id", route_mediaplayers.getOne);
+addRoute("POST", `/${API}/mediaplayers/:id`, route_mediaplayers.post);
+addRoute("GET", `/${API}/mediaplayers`, route_mediaplayers.getAll);
+addRoute("GET", `/${API}/mediaplayers/:id`, route_mediaplayers.getOne);
 
 serve({
-  port: 44642,
+  port: PORT,
   fetch: handleRequest,
 });

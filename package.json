@@ -4,6 +4,8 @@
     "start": "bun run src/main.ts"
   },
   "devDependencies": {
-    "@types/bun": "^1.2.12"
+    "@types/node": "^20.11.0",
+    "@types/bun": "^1.2.12",
+    "bun": ">=1.0.0"
   }
 }
