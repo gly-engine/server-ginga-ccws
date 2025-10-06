@@ -2,6 +2,7 @@ import { serve } from "bun";
 import { addRoute, handleRequest, use } from "./web/router";
 import * as route_persistent from "./web/routes/persistent";
 import * as route_mediaplayers from "./web/routes/mediaplayers";
+import * as route_platform from "./web/routes/platform";
 import { logMiddleware } from "./web/middleware/log";
 import { corsMiddleware } from "./web/middleware/cors";
 
@@ -18,6 +19,8 @@ addRoute("GET", `/${API}/current-service/ginga/persistent/:key`, route_persisten
 addRoute("POST", `/${API}/mediaplayers/:id`, route_mediaplayers.post);
 addRoute("GET", `/${API}/mediaplayers`, route_mediaplayers.getAll);
 addRoute("GET", `/${API}/mediaplayers/:id`, route_mediaplayers.getOne);
+
+addRoute("GET", `/${API}/platform-capabilities`, route_platform.getCapabilities);
 
 serve({
   port: PORT,
