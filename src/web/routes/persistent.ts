@@ -41,7 +41,7 @@ export const getOne: Handler = async (req, params) => {
     return HttpResponse.json(transform.PersistentListToResponseList([]));
   }
 
-  return HttpResponse.json(transform.PersistentToResponse(storage));
+  return HttpResponse.text(transform.PersistentToPlainText(storage));
 };
 
 export const getAll: Handler = async (req) => {

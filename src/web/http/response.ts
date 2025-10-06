@@ -5,7 +5,14 @@ export class HttpResponse {
         headers: { "Content-Type": "application/json" },
       });
     }
-  
+    
+    static text(content: string, status = 200): Response {
+      return new Response(content, {
+        status,
+        headers: { "Content-Type": "text/plain; charset=utf-8" },
+      });
+    }
+
     static gingaError(error: number, descripion = 'Some Ginga CCWS Error'): Response {
       return new Response(JSON.stringify({
         error, descripion
