@@ -38,7 +38,7 @@ export const getOne: Handler = async (req, params) => {
   const storage = persistent.load(params.key)
 
   if (!storage) {
-    return HttpResponse.json(transform.PersistentListToResponseList([]));
+    return HttpResponse.gingaError(HttpGinga.ResourceNotFound)
   }
 
   return HttpResponse.text(transform.PersistentToPlainText(storage));
