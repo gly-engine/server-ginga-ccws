@@ -44,7 +44,13 @@ export const getOne: Handler = async (req, params) => {
   return HttpResponse.text(transform.PersistentToPlainText(storage));
 };
 
-export const getAll: Handler = async (req) => {
+export const getAll: Handler = async (req, params) => {
+  const key = new URL(req.url).searchParams.get("var-name");
+
+  if (key) {
+    return getOne(req, {key})
+  }
+
   const storage = persistent.loadAll()
   return HttpResponse.json(transform.PersistentListToResponseList(storage));
 };
