@@ -5,12 +5,14 @@ import * as route_mediaplayers from "./web/routes/mediaplayers";
 import * as route_platform from "./web/routes/platform";
 import { logMiddleware } from "./web/middleware/log";
 import { corsMiddleware } from "./web/middleware/cors";
+import { delayMiddleware } from "./web/middleware/delay";
 
 const PORT = Number(process.env.PORT ?? 44642);
 const API = process.env.API ?? 'dtv';
 
 //use(logMiddleware);
 use(corsMiddleware);
+use(delayMiddleware);
 
 addRoute("POST", `/${API}/current-service/ginga/persistent/:key`, route_persistent.post);
 addRoute("GET", `/${API}/current-service/ginga/persistent`, route_persistent.getAll);
