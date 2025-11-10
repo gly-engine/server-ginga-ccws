@@ -3,7 +3,7 @@
 > A mock server for Ginga-based DTVi applications, built to support ABNT NBR 15606-11.
 Ideal for testing interactive digital TV applications in a local environment with [Telemedia Ginga](https://github.com/TeleMidia/ginga) or a **desktop browser**.
 
- * **Default Server URL:** <http://localhost:44642/>
+ * **Default Server URL:** [http://localhost:44642](http://localhost:44642/dtv/platform-capabilities)
  * **API Documentation:** <https://gly-engine.github.io/server-ginga-ccws>
 
 ## :rocket: Quick Start
