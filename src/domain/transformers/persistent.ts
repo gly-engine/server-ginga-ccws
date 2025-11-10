@@ -7,6 +7,10 @@ export function PersistentToResponse(storage: Persistent) {
   }
 }
 
+export function PersistentToPlainText(storage: Persistent) {
+  return storage.set[storage.key]
+}
+
 export function PersistentListToResponseList(list: Persistent[]) {
   return list.map(item => ({
     key: item.key,
